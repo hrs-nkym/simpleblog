@@ -15,8 +15,10 @@ python3 -m django --version
 ## Add Library
 
 ```sh
+pip install pillow
 pip install djangorestframework
 pip install django-cors-headers
+pip install django-cleanup
 ```
 
 ## Add Project
@@ -42,4 +44,11 @@ python manage.py runserver 0.0.0.0:80
 
 ```url
 http://127.0.0.1:port/admin/
+```
+
+## Vue 
+
+```sh
+cd nblog3
+vue create frontend
 ```
