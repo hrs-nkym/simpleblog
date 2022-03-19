@@ -3,4 +3,8 @@ from . import views
 
 app_names = "nblog3"
 
-urlpatterns = []
+urlpatterns = [
+    path("api/posts/", views.PostList.as_view(), name="post_list"),
+    path("api/posts/<int:pk>/", views.PostDetail.as_view(), name="post_detail"),
+    path("api/categories/", views.CategoryList.as_view(), name="category_list"),
+]
