@@ -25,12 +25,13 @@ SECRET_KEY = "django-insecure-r8xf5qa3ncrdeb!^kr%#4ek$2ero=+p3la#6ayf@79p8l4m@#4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    "nblog3.apps.Nblog3Config",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
