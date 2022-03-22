@@ -128,3 +128,14 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+if DEBUG:
+    INSTALLED_APPS += ["corsheaders"]
+    MIDDLEWARE += [
+        "corsheaders.middleware.CorsMiddleware",
+    ] + MIDDLEWARE
+    CORS_ORIGIN_WHITELIST = (
+        "http://127.0.0.1:8081",
+        "http://localhost:8081",
+    )
+    CORS_ALLOW_CREDENTIALS = True
