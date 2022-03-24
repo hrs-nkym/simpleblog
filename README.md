@@ -46,9 +46,18 @@ python manage.py runserver 0.0.0.0:80
 http://127.0.0.1:port/admin/
 ```
 
-## Vue 
+## Vue Add Project & App Start
 
 ```sh
 cd nblog3
 vue create frontend
+cd frontend
+npm run serve
+```
+
+## Vue eslint init
+
+```sh
+cd nblog3/frontend
+./node_modules/.bin/eslint --init
 ```
