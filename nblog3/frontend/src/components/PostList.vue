@@ -14,22 +14,40 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+import { UPDATE_POSTS } from "../store/mutation-types";
+
 export default {
   name: "post-list",
-  data() {
-    return {
-      postList: [],
-    };
+  computed: {
+    ...mapGetters(["postList"]),
   },
-  mounted() {
+  methods: {
+    ...mapActions([UPDATE_POSTS]),
+  },
+  created() {
     this.$http(this.$httpPosts)
       .then((response) => {
         return response.json();
       })
       .then((data) => {
-        this.postList = data;
+        this[UPDATE_POSTS](data);
       });
   },
+  // data() {
+  //   return {
+  //     postList: [],
+  //   };
+  // },
+  // mounted() {
+  //   this.$http(this.$httpPosts)
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       this.postList = data;
+  //     });
+  // },
 };
 </script>
 
