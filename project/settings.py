@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django_cleanup.apps.CleanupConfig",
     "rest_framework",
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -50,7 +51,15 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
+
+INTERNAL_IPS = ["127.0.0.1"]
+
+DEBUG_TOOLBAR_CONFIG = {
+    "SHOW_TOOLBAR_CALLBACK": lambda request: True,
+}
+
 
 ROOT_URLCONF = "project.urls"
 
@@ -135,7 +144,7 @@ if DEBUG:
         "corsheaders.middleware.CorsMiddleware",
     ] + MIDDLEWARE
     CORS_ORIGIN_WHITELIST = (
-        "http://127.0.0.1:8081",
-        "http://localhost:8081",
+        "http://127.0.0.1:8080",
+        "http://localhost:8080",
     )
     CORS_ALLOW_CREDENTIALS = True
