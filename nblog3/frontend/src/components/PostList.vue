@@ -28,9 +28,11 @@ export default {
   created() {
     this.$http(this.$httpPosts)
       .then((response) => {
+        console.log("debug1: response -> ", response);
         return response.json();
       })
       .then((data) => {
+        console.log("debug2: data -> ", data);
         this[UPDATE_POSTS](data);
       });
   },
