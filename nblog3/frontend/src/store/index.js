@@ -1,12 +1,16 @@
 import { createStore } from 'vuex'
-import { UPDATE_POSTS } from './mutation-types'
+import { UPDATE_POSTS, UPDATE_CATEGORIES } from './mutation-types'
 
 export default createStore({
   strict: true,
   state: {
     posts: {},
+    categories: {},
   },
   getters: {
+    categoryList(state) {
+      return state.categories
+    },
     getPreviousURL(state) {
       return state.posts.previous
     },
@@ -38,12 +42,18 @@ export default createStore({
   mutations: {
     [UPDATE_POSTS](state, payload) {
       state.posts = payload
-    }
+    },
+    [UPDATE_CATEGORIES](state, payload) {
+      state.categories = payload
+    },
   },
   actions: {
     [UPDATE_POSTS]({ commit }, payload) {
       commit(UPDATE_POSTS, payload)
-    }
+    },
+    [UPDATE_CATEGORIES]({ commit }, payload) {
+      commit(UPDATE_CATEGORIES, payload)
+    },
   },
   modules: {
   }
