@@ -1,5 +1,5 @@
 <template>
-  <main class="container">
+  <div :key="getKey" class="container">
     <p id="lead">
       {{ postCount }}件中 {{ postRangeFirst }}~{{ postRangeLast }}件を一覧表示
     </p>
@@ -32,7 +32,7 @@
         ><img src="@/assets/next.png"
       /></a>
     </nav>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -53,6 +53,9 @@ export default {
       "getPreviousURL",
       "getNextURL",
     ]),
+    getKey() {
+      return `${this.postCurrentPageNumber} ${this.$route.query.keyword} ${this.$route.query.category}`;
+    },
   },
   methods: {
     ...mapActions([UPDATE_POSTS]),
@@ -85,6 +88,12 @@ export default {
         // console.log("debug2: data -> ", data);
         this[UPDATE_POSTS](data);
       });
+  },
+  mounted() {
+    document.title = `blog`;
+    document
+      .querySelector("meta[name='description']")
+      .setAttribute("content", "blog");
   },
   // data() {
   //   return {
