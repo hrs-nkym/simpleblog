@@ -6,6 +6,11 @@ from rest_framework import generics, response, pagination
 from .models import Post, Category
 from .serializers import CategorySerializer, PostSerializer, SimplePostSerializer
 from django.db.models import Q
+from django.views import generic
+
+
+class Top(generic.TemplateView):
+    template_name = "nblog3/index.html"
 
 
 class CategoryList(generics.ListAPIView):

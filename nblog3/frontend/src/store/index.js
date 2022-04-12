@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 import { UPDATE_POSTS, UPDATE_CATEGORIES } from './mutation-types'
 
 export default createStore({
-  strict: true,
+  strict: process.env.NODE_ENV !== 'production',
   state: {
     posts: {},
     categories: {},

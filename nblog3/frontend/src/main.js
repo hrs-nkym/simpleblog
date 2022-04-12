@@ -8,7 +8,7 @@ import store from './store'
 const app = createApp(App).use(store).use(router)
 
 app.config.globalProperties.$http = (url, opts) => fetch(url, opts)
-app.config.globalProperties.$httpPosts = 'http://127.0.0.1:8000/blog/api/posts/'
-app.config.globalProperties.$httpCategories = 'http://127.0.0.1:8000/blog/api/categories/'
+app.config.globalProperties.$httpPosts = process.env.NODE_ENV === 'production' ? '/blog/api/posts/' : 'http://127.0.0.1:8000/blog/api/posts/'
+app.config.globalProperties.$httpCategories = process.env.NODE_ENV === 'production' ? '/blog/api/categories' : 'http://127.0.0.1:8000/blog/api/categories/'
 
 app.mount('#app')

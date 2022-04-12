@@ -1,0 +1,28 @@
+<!doctype html><html lang=""><meta><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/blog/favicon.ico"><title>Simple Blog</title><meta name="description" content="tutorial"><script>(function (d) {
+    var config = {
+        kitId: 'kgr0pdb',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h = d.documentElement,
+      t = setTimeout(function () {
+        h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+      }, config.scriptTimeout),
+      tk = d.createElement("script"),
+      f = false,
+      s = d.getElementsByTagName("script")[0],
+      a;
+    h.className += " wf-loading";
+    tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+    tk.async = true;
+    tk.onload = tk.onreadystatechange = function () {
+      a = this.readyState;
+      if (f || a && a != "complete" && a != "loaded") return;
+      f = true;
+      clearTimeout(t);
+      try {
+        Typekit.load(config)
+      } catch (e) {}
+    };
+    s.parentNode.insertBefore(tk, s)
+  })(document);</script><script defer="defer" src="/blog/../static/nblog3/js/chunk-vendors.c8be2587.js"></script><script defer="defer" src="/blog/../static/nblog3/js/app.79c7e505.js"></script><link href="/blog/../static/nblog3/css/app.3b6f491f.css" rel="stylesheet"><body><noscript><strong>We're sorry but frontend doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div></body></html>
