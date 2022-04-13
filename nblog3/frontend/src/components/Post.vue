@@ -46,7 +46,7 @@ export default {
     });
   },
   created() {
-    this.$http(`${this.$httpPosts}${this.id}/`)
+    this.$http(`${this.$httpPosts}${this.id}/`, { credentials: "include" })
       .then((response) => {
         return response.json();
       })

@@ -60,7 +60,7 @@ export default {
   methods: {
     ...mapActions([UPDATE_POSTS]),
     getPostPrevious() {
-      this.$http(this.getPreviousURL)
+      this.$http(this.getPreviousURL, { credentials: "include" })
         .then((response) => {
           return response.json();
         })
