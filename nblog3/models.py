@@ -13,11 +13,12 @@ class Category(models.Model):
 class Post(models.Model):
     title = models.CharField("タイトル", max_length=40)
     thumbnail = models.ImageField("サムネイル", blank=True, null=True)
-    category = models.ForeignKey(
-        Category, on_delete=models.PROTECT, verbose_name="カテゴリ"
-    )
+    category = models.ForeignKey(Category,
+                                 on_delete=models.PROTECT,
+                                 verbose_name="カテゴリ")
     lead_text = models.TextField("紹介文")
     main_text = models.TextField("本文")
+    is_public = models.BooleanField("公開可能か", default=True)
     created_at = models.DateTimeField("作成日", default=timezone.now)
 
     class Meta:
